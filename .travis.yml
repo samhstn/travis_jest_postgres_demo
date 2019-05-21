@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "node"
+env:
+  TEST_DATABASE_URL: 'postgres://postgres:@localhost:5432/travis_jest_postgres_demo'
+cache: npm
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database travis_jest_postgres_demo;' -U postgres
